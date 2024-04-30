@@ -1,0 +1,12 @@
+# Main
+#torch
+
+# Examples
+numpy
+datasets
+tiktoken
+imageio
+#git+https://github.com/sail-sg/Adan.git
+thop
+matplotlib
+pygame
