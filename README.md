@@ -2,17 +2,18 @@
 
 # Masked Torch
 
-Welcome to Masked Torch, the home of a PyTorch implementation for the `MaskedConv2d` layer, designed to address the issues presented in typical convolution operations with varying image sizes and hardware acceleration constraints. This project is inspired by the innovative ideas from the paper "Partial Convolution based Padding" by Guilin Liu et al.
+Masked Convolution for Diverse Sample Sizes designed to address the issues presented in typical convolution operations with varying image sizes and hardware acceleration constraints. This project is inspired by the innovative ideas from the paper "Partial Convolution based Padding" by Guilin Liu et al.
 
 ## Introduction
-In the realm of convolution operations, the main advantage of handling images of different sizes is often compromised due to the limitations imposed by GPU accelerations which necessitate larger batch sizes. Several solutions have emerged, though none without their drawbacks. The `MaskedConv2d` layer provided in this repository is refined to support better statistical handling and normalization of multi-channel masks without altering the image distribution as seen in conventional methods.
+In the realm of convolution operations, the main advantage of handling images of different sizes is often compromised due to the limitations imposed by GPU accelerations which necessitate larger batch sizes. Several solutions have emerged, though none without their drawbacks. The `MaskedConv2d` layer provided in this repository is refined to support better statistical handling and normalization of multi-channel masks without altering output distribution as seen in conventional methods.
 
 ## Why MaskedConv2d?
 `PartialConv2d` layers, as discussed in various implementations, tend to disrupt the distribution of output values which can be detrimental in certain use cases. This repository offers `MaskedConv2d` as a drop-in replacement to rectify these issues, promoting stability and efficiency in model training.
 
 ## Key Differences
 - **Output Distribution:** Unlike `PartialConv2d`, `MaskedConv2d` ensures the output values remain normally distributed.
-- **Mask Handling:** `MaskedConv2d` utilizes 1x1 convolution weights for the mask, allowing for direct channel-wise scaling without the blurring effect seen in `PartialConv2d`.
+- **Mask Handling:** `MaskedConv2d` utilizes 1x1 convolution weights for the mask, allowing for direct channel-wise scaling without the mask blurring effect seen in `PartialConv2d`.
+- **Versatility**: `MaskedConv2d` can also act as a drop-in replacement for trained regular convolutional layers.
 - **Efficiency:** `MaskedConv2d` is optimized for no-mask scenarios which accelerates training without compromising on performance.
 
 ## Visual Comparison
@@ -45,7 +46,7 @@ This project is licensed under the Apache License, Version 2.0 ([LICENSE-APACHE-
 If you find this implementation useful in your research, please consider citing it:
 ```bibtex
 @misc{mconv2024,
-    title = {Masked Convolution for PyTorch},
+    title = {Masked Convolution for Diverse Sample Sizes},
     author = {Ivan Stepanov},
     year = {2024},
     howpublished = {\url{https://github.com/ivanstepanovftw/masked_torch}},
