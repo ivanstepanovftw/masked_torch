@@ -17,7 +17,7 @@ In the realm of convolution operations, the main advantage of handling images of
 - **Efficiency:** `MaskedConv2d` is optimized for no-mask scenarios which accelerates training without compromising on performance.
 
 ## Visual Comparison
-A comparative visualization of activation statistics (per-channel mean) between conventional convolution (conv), PartialConv (pconv), and MaskedConv (mconv). It highlights how `MaskedConv2d` maintains a more consistent and stable distribution across the layers:
+A comparative visualization of activation statistics (per-channel mean) between conventional convolution (conv), PartialConv (pconv), and MaskedConv (mconv, this work). It highlights how `MaskedConv2d` maintains a more consistent and stable distribution across the layers:
 
 ![Visual Comparison](https://i.imgur.com/8ifNtrP.png)
 
